@@ -25,12 +25,16 @@ Some preliminary research made clear that HOG parameters are already providing g
 
 See what maximum accuracy we can achieve: imagesize 64x64 (source image resolution), 64 bins for histograms, try this on all color spaces mentioned above and on all combinations of feature vectors (spatial binning, color histograms, HOG)
 
-|   |   |   |   |   |   |   |   |   |   |
+**4**|**6**|**5**
+:-----:|:-----:|:-----:
+2|3|5
+
+|  5 |   | 3  |   | 1  |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|---|---|
 |   |   |   |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
+|   |   |   |1   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |   |   |   |
