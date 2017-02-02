@@ -21,3 +21,13 @@ non-vehicles 5068 RGB images of size 64x64
 <img src="https://cloud.githubusercontent.com/assets/23193240/22543714/133f54aa-e932-11e6-8dd0-370e2d227a79.jpg" width="128" height="128" /> 
 <img src="https://cloud.githubusercontent.com/assets/23193240/22543796/6819e67a-e932-11e6-8863-f57416bd8b7e.jpg" width="128" height="128" /> 
 
+Some preliminary research made clear that HOG parameters are already providing good solutions. RGB is not a good color space, but the HSV, LUV, HLS, YUV and YCrCb all made sense to further investigate. Using a single layer of a color space degraded performance considerably, so will not be considered. Spatial binning made some difference both in accuracy as in training time. histogram increasing bins to 64 also increased accuracy and training time. Training time is a measure for performance using the feature in a video pipeline. So we want this to be small.
+
+See what maximum accuracy we can achieve: imagesize 64x64 (source image resolution), 64 bins for histograms, try this on all color spaces mentioned above and on all combinations of feature vectors (spatial binning, color histograms, HOG)
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+
