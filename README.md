@@ -27,7 +27,7 @@ See what maximum accuracy we can achieve: imagesize 64x64 (source image resoluti
 
 training on a SVM with a linear kernel
 
-**color space**|**spatial color binningh**|**histograms of color**|**HOG**|**average test accuracy**|**standard deviation**
+**color space**|**spatial color binning**|**histograms of color**|**HOG**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:
 HSV|FALSE|FALSE|TRUE|0.9800|0.0025
 HSV|FALSE|TRUE|FALSE|**0.9972**|0.0013
