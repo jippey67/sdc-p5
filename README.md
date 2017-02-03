@@ -91,3 +91,9 @@ In a second round of classifier training only the two highest performing models 
 64x64|64|0.9976|0.0012
 
 What settings to choose? 16x16 images (with 64 histogram bins) somewhat surprisingly provide the highest accuracy of 0.998, when all three features are combined. This seems very high, but still means that 2 out of 1000 samples will be misclassified. Considered the number of frames that will be searched in a single image, and the number of images in a video stream, it is clear that many misclassifications will occur. While a classifier with mmultiple features and high resolutiuon will consume more processing time, leading to a longer conversion time of the video stream and ultimately to a processing time that is simply too long for use in real time vehicle detection. Also consider using spatial color bins only in the video pipeline. Proof of the pudding is in the eating: see what works best in the pipeline.
+
+## Sliding window search
+
+Cars appear smaller in the image the farther they are away. The range of the image to be searched for small instances of a car is relatively small as is the size of the car image. From a couple of pictures it appears that small cars fit in a box of 32x32 pixels, whereas nearby and therefore larger cars need up to 128x128 pixels. In general there are no cars to be expected in the range y < 400. Also far away cars tend to be distributed closely around the x-center of the images. I decided to aim my search for cars in the following way:
+
+
