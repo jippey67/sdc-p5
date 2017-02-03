@@ -30,12 +30,12 @@ training on a SVM with a linear kernel
 **color space**|**spatial color binningh**|**histograms of color**|**HOG**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:
 HSV|FALSE|FALSE|TRUE|0.9800|0.0025
-HSV|FALSE|TRUE|FALSE|0.9972|0.0013
+HSV|FALSE|TRUE|FALSE|**0.9972**|0.0013
 HSV|FALSE|TRUE|TRUE|0.9961|0.0019
 HSV|TRUE|FALSE|FALSE|0.9188|0.0052
 HSV|TRUE|FALSE|TRUE|0.9908|0.0020
 HSV|TRUE|TRUE|FALSE|0.9855|0.0020
-HSV|TRUE|TRUE|TRUE|0.9974|0.0012
+HSV|TRUE|TRUE|TRUE|**0.9974**|0.0012
 LUV|FALSE|FALSE|TRUE|0.9777|0.0038
 LUV|FALSE|TRUE|FALSE|0.9911|0.0008
 LUV|FALSE|TRUE|TRUE|0.9952|0.0013
