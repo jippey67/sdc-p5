@@ -71,7 +71,7 @@ In a second round of classifier training only the two highest performing models 
 **image size (pixels)**|**number of histogram bins**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:
 16x16|32|0.9961|0.0010
-16x16|64|0.9981|0.0006
+**16x16**|**64**|**0.9981**|**0.0006**
 32x32|32|0.9971|0.0010
 32x32|64|0.9977|0.0011
 64x64|32|0.9950|0.0010
