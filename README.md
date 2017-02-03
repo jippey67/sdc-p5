@@ -26,6 +26,7 @@ Some preliminary research made clear that HOG parameters are already providing g
 See what maximum accuracy we can achieve: imagesize 64x64 (source image resolution), 64 bins for histograms, try this on all color spaces mentioned above and on all combinations of feature vectors (spatial binning, color histograms, HOG). As the accuracy varied to some extent from training to training, I decided to run those combinations 10 times and average the accuracies, shown in the table below. 
 
 training on a SVM with a linear kernel
+
 **color space**|**spatial color binningh**|**histograms of color**|**HOG**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:
 HSV|FALSE|FALSE|TRUE|0.9800|0.0025
