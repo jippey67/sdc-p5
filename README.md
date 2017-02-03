@@ -68,3 +68,7 @@ YCrCb|TRUE|TRUE|TRUE|0.9904|0.0021
 The highest accuracy is scored in the HSV color space, using all three features. Interesting is that using only the spatial color binning feature also provides a high accuracy. Both rows are shown in bold in the table above. The training of these classifiers was done with large parameters for image size and size of histogram bins. This will result in a relatively long processing time in the video pipeline, so it makes sense to find out how much the accuracy drops when those parameters are decreased. 
 In a second round of classifier training only the two highest performing models from round 1 are considered. Image size is varied in 16x16, 32x32 and 64x64, while number of histogram bins is varied 32 and 64. The results, once again done on 10 training rounds per parameter set and averaged, is shown in the table below.
 
+
+TABELLLLLLL
+
+What settings to choose? Accuracy of 0.997 seems very high, but still means that 3 out of 1000 samples will be misclassified. Considered the number of frames that will be searched in a single image, and the number of images in a video stream, it is clear that many misclassifications will occur. On the other a classifier with high resolutiuon will consume more processing time, leading to a longer conversion time of the video stream and ultimately to a processing time that is simply too long for use in real time vehicle detection.
