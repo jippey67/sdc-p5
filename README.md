@@ -100,8 +100,7 @@ Cars appear smaller in the image the farther they are away. The range of the ima
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
 small|32x32|400 - 448|400 - 880|50%|2|29
 medium|64x64|400 - 496|320 - 960|50%|2|19
-large|128x128|400 - 528|192-1088|50%|1|13
+large|128x128|400 - 592|192-1088|50%|2|13
  | | | | | | 
-total number of frames| | | | |109| 
-
+total number of frames| | | | |122| 
 
