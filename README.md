@@ -24,11 +24,11 @@ The data was labeled "1" for cars and "0" for non cars, and after creating a ran
 
 ## Training a classifier
 
-For this project I chose to use a Support Vector Machine with a linear kernel. A couple of features are available to implement with this classifier: spatial binning of color, color histograms and histograms of oriented gradients (HOG). Each of these involves the selection of parameters. As especially the HOG feature has many parameters, I decided to investigate this one first. In a following step I combined the three features and ran a two-step simulation to arrive at the best parameters.
+For this project I chose to use a Support Vector Machine with a linear kernel. A couple of features are available to implement with this classifier: spatial binning of color, color histograms and histograms of oriented gradients (HOG). Each of these involves the selection of parameters. As especially the HOG feature has many parameters, I decided to investigate this one first. In a following step I combined the three features and ran a two-step simulation to arrive at the optimal parameters.
 
 ### The HOG parameters
 
-Preliminary research already proved the HSV color space as useful for using the HOG feature. In the next step (three feature optimalization) I will consider other color spaces, but for HOG I kept it to HSV, for complexity reasons. HOG was tested on various values of number of orientatations, pixels per cell, cells per block, and the color layer of the image. The results made immediately clear that the image layers need to be combined to arrive at a useful feature. Single layer accuracy never reached 0.99 whereas a combination of the three layers easily reached that figure. The table below shows the accuracy with varying parameters. 
+Preliminary research already proved the HSV color space as useful for using the HOG feature. In the next step (three feature optimalization) I will consider other color spaces, but for HOG I kept it to HSV, for complexity reasons. HOG was tested on various values of number of orientatations, pixels per cell, cells per block, and the color layer of the image. The results made immediately clear that the image layers need to be combined to arrive at a useful feature. Single layer accuracy never reached 0.99 whereas a combination of the three layers easily reached that figure. The table below shows the accuracy with varying parameters. I left out the results of the single channel HOG for brevity.  
 
 **# orientations**|**pix/cell**|**cells/block**|**HOG channel**|**test accuracy**
 :-----:|:-----:|:-----:|:-----:|:-----:
@@ -51,7 +51,7 @@ Preliminary research already proved the HSV color space as useful for using the 
 5|4|2|ALL|0.9950
 5|4|1|ALL|0.9941
 
-In bold the highest accuracies. Trying to run the training on an even larger number of orientations wasn't succesful because of an unacceptable long training time. For the same reason I chose to go with 9 orientations: The accuracy is not that much different from the highest accuracy features and, as processing time is important for creating a working video pipeline, this helps in reducing processor time.
+In bold the highest accuracies. Trying to run the training on an even larger number of orientations wasn't succesful because of an unacceptable long training time. For the same reason I chose to go with 9 orientations (and 4 pixels per cell, 2 cells/block and ALL layers): The accuracy is not that much different from the highest accuracy features and, as processing time is important for creating a working video pipeline, this helps in reducing processor time.
 
 ### training the combinations of features
 
