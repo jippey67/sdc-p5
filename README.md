@@ -30,12 +30,12 @@ training on a SVM with a linear kernel
 **color space**|**spatial color binning**|**histograms of color**|**HOG**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:
 HSV|FALSE|FALSE|TRUE|0.9800|0.0025
-HSV|FALSE|TRUE|FALSE|**0.9972**|0.0013
+**HSV|FALSE|TRUE|FALSE|0.9972|0.0013**
 HSV|FALSE|TRUE|TRUE|0.9961|0.0019
 HSV|TRUE|FALSE|FALSE|0.9188|0.0052
 HSV|TRUE|FALSE|TRUE|0.9908|0.0020
 HSV|TRUE|TRUE|FALSE|0.9855|0.0020
-HSV|TRUE|TRUE|TRUE|**0.9974**|0.0012
+**HSV|TRUE|TRUE|TRUE|0.9974|0.0012**
 LUV|FALSE|FALSE|TRUE|0.9777|0.0038
 LUV|FALSE|TRUE|FALSE|0.9911|0.0008
 LUV|FALSE|TRUE|TRUE|0.9952|0.0013
@@ -64,3 +64,7 @@ YCrCb|TRUE|FALSE|FALSE|0.9366|0.0045
 YCrCb|TRUE|FALSE|TRUE|0.9901|0.0022
 YCrCb|TRUE|TRUE|FALSE|0.9395|0.0035
 YCrCb|TRUE|TRUE|TRUE|0.9904|0.0021
+
+The highest accuracy is scored in the HSV color space, using all three features. Interesting is that using only the spatial color binning feature also provides a high accuracy. Both rows are shown in bold in the table above. The training of these classifiers was done with large parameters for image size and size of histogram bins. This will result in a relatively long processing time in the video pipeline, so it makes sense to find out how much the accuracy drops when those parameters are decreased. 
+In a second round of classifier training only the two highest performing models from round 1 are considered. Image size is varied in 16x16, 32x32 and 64x64, while number of histogram bins is varied 32 and 64. The results, once again done on 10 training rounds per parameter set and averaged, is shown in the table below.
+
