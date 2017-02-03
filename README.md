@@ -26,21 +26,40 @@ Some preliminary research made clear that HOG parameters are already providing g
 See what maximum accuracy we can achieve: imagesize 64x64 (source image resolution), 64 bins for histograms, try this on all color spaces mentioned above and on all combinations of feature vectors (spatial binning, color histograms, HOG). As the accuracy varied to some extent from training to training, I decided to run those combinations 10 times and average the accuracies, shown in the table below. 
 
 training on a SVM with a linear kernel
-
-**4**|**6**|**5**
-:-----:|:-----:|:-----:
-2|3|5
-
-|  5 |   | 3  |   | 1  |   |   |   |   |   |
-|---|---|---|---|---|---|---|---|---|---|
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |1   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
-|   |   |   |   |   |   |   |   |   |   |
+**color space**|**spatial color binningh**|**histograms of color**|**HOG**|**average test accuracy**|**standard deviation**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+HSV|FALSE|FALSE|TRUE|0.9800|0.0025
+HSV|FALSE|TRUE|FALSE|0.9972|0.0013
+HSV|FALSE|TRUE|TRUE|0.9961|0.0019
+HSV|TRUE|FALSE|FALSE|0.9188|0.0052
+HSV|TRUE|FALSE|TRUE|0.9908|0.0020
+HSV|TRUE|TRUE|FALSE|0.9855|0.0020
+HSV|TRUE|TRUE|TRUE|0.9974|0.0012
+LUV|FALSE|FALSE|TRUE|0.9777|0.0038
+LUV|FALSE|TRUE|FALSE|0.9911|0.0008
+LUV|FALSE|TRUE|TRUE|0.9952|0.0013
+LUV|TRUE|FALSE|FALSE|0.9410|0.0051
+LUV|TRUE|FALSE|TRUE|0.9893|0.0024
+LUV|TRUE|TRUE|FALSE|0.9718|0.0031
+LUV|TRUE|TRUE|TRUE|0.9935|0.0017
+HLS|FALSE|FALSE|TRUE|0.9775|0.0037
+HLS|FALSE|TRUE|FALSE|0.9950|0.0011
+HLS|FALSE|TRUE|TRUE|0.9966|0.0012
+HLS|TRUE|FALSE|FALSE|0.9218|0.0059
+HLS|TRUE|FALSE|TRUE|0.9902|0.0015
+HLS|TRUE|TRUE|FALSE|0.9802|0.0028
+HLS|TRUE|TRUE|TRUE|0.9954|0.0016
+YUV|FALSE|FALSE|TRUE|0.9805|0.0030
+YUV|FALSE|TRUE|FALSE|0.5454|0.0123
+YUV|FALSE|TRUE|TRUE|0.9795|0.0024
+YUV|TRUE|FALSE|FALSE|0.9376|0.0046
+YUV|TRUE|FALSE|TRUE|0.9893|0.0020
+YUV|TRUE|TRUE|FALSE|0.9394|0.0059
+YUV|TRUE|TRUE|TRUE|0.9901|0.0017
+YCrCb|FALSE|FALSE|TRUE|0.9778|0.0023
+YCrCb|FALSE|TRUE|FALSE|0.5433|0.0083
+YCrCb|FALSE|TRUE|TRUE|0.9792|0.0026
+YCrCb|TRUE|FALSE|FALSE|0.9366|0.0045
+YCrCb|TRUE|FALSE|TRUE|0.9901|0.0022
+YCrCb|TRUE|TRUE|FALSE|0.9395|0.0035
+YCrCb|TRUE|TRUE|TRUE|0.9904|0.0021
