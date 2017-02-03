@@ -4,17 +4,9 @@ This repository contains the work I did for the vehicle detection and tracking p
 
 First a car finding algorithm has to be set up. This involves obtaining a collection of images of cars and non cars, and training a classifier that succesfully finds cars in images. With the classifier cars can be found in the image provided by the forward looking camera. As cars can be in different spots in an image and of different sizes, a sliding window technique with varying window sizes needs to be implemented. To correct for finding (too many) false positives and to build a smooth view on the surrounding cars, an averaging and thresholding method is used. In the project I made use of many Python functions provided in the Udacity lessons.
 
+## Training data
 
-
-
-devise a model for steering a simulator car around a track, by means of end-to-end learning. This is done by measuring human behaviour while driving the simulator car around. The data provided are: 1) camera images of front looking cameras on the left, center and right of the car and 2) steering angles used by the human driver to drive the car. Based on these data a convolutional neural network is trained to simulate the human behaviour in order to be able to drive the car and keep the car on track. Actual driving is done based on only the images of the center camera. In the following sections I will discuss the model, the data and the training of the network.
-
-
-
-## Training a model for recognizing cars
-
-used KITTI cars 5966 RGB images of size 64x64
-non-vehicles 5068 RGB images of size 64x64
+Within the project a couple of data sources are available. I chose to use the KITTI collection of cars with 5966 images and an accompanying set of 5068 images that contain images of roads and surroundings, without cars in them. Both sets are in RGB color space and of format 64x64 pixels. Below are 5 examples of cars en 5 examples of non cars. 
 
 <img src="https://cloud.githubusercontent.com/assets/23193240/22543697/0a763e38-e932-11e6-859e-6767d16b2a6f.jpg" width="128" height="128" /> 
 <img src="https://cloud.githubusercontent.com/assets/23193240/22543698/0a8d830e-e932-11e6-9c46-fb242c1301d0.jpg" width="128" height="128" /> 
