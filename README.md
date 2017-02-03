@@ -96,4 +96,12 @@ What settings to choose? 16x16 images (with 64 histogram bins) somewhat surprisi
 
 Cars appear smaller in the image the farther they are away. The range of the image to be searched for small instances of a car is relatively small as is the size of the car image. From a couple of pictures it appears that small cars fit in a box of 32x32 pixels, whereas nearby and therefore larger cars need up to 128x128 pixels. In general there are no cars to be expected in the range y < 400. Also far away cars tend to be distributed closely around the x-center of the images. I decided to aim my search for cars in the following way:
 
+**type of car**|**size of box**|**y-range**|**x-range**|**step size**|**frames in y direction**|**frames in x direction**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+small|32x32|400 - 448|400 - 880|50%|2|29
+medium|64x64|400 - 496|320 - 960|50%|2|19
+large|128x128|400 - 528|192-1088|50%|1|13
+ | | | | | | 
+total number of frames| | | | |109| 
+
 
