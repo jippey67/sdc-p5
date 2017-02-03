@@ -1,6 +1,13 @@
 # Vehicle Detection and Tracking
 
+This repository contains the work I did for the vehicle detection and tracking project in the Udacity Self-Driving Car Nanodegree program. The objective of the project is to find cars in the images of a front looking camera, and track these cars. Goal is to find all cars as soon as they enter into view, while minimizing the chance of the occurence of 'false positives': Find a car where there isn't one. 
 
+First a car finding algorithm has to be set up. This involves obtaining a collection of images of cars and non cars, and training a classifier that succesfully finds cars in images. With the classifier cars can be found in the image provided by the forward looking camera. As cars can be in different spots in an image and of different sizes, a sliding window technique with varying window sizes needs to be implemented. To correct for finding (too many) false positives and to build a smooth view on the surrounding cars, an averaging and thresholding method is used. In the project I made use of many Python functions provided in the Udacity lessons.
+
+
+
+
+devise a model for steering a simulator car around a track, by means of end-to-end learning. This is done by measuring human behaviour while driving the simulator car around. The data provided are: 1) camera images of front looking cameras on the left, center and right of the car and 2) steering angles used by the human driver to drive the car. Based on these data a convolutional neural network is trained to simulate the human behaviour in order to be able to drive the car and keep the car on track. Actual driving is done based on only the images of the center camera. In the following sections I will discuss the model, the data and the training of the network.
 
 
 
@@ -127,3 +134,5 @@ large|128x128|400 - 592|192-1088|50%|2|13
  | | | | | | 
 total number of frames| | | | |122| 
 
+## sources
+* udacity.com: various Python functions
