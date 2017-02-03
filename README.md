@@ -68,6 +68,7 @@ YCrCb|TRUE|TRUE|TRUE|0.9904|0.0021
 The highest accuracy is scored in the HSV color space, using all three features. Interesting is that using only the spatial color binning feature also provides a high accuracy. Both rows are shown in bold in the table above. The training of these classifiers was done with large parameters for image size and size of histogram bins. This will result in a relatively long processing time in the video pipeline, so it makes sense to find out how much the accuracy drops when those parameters are decreased. 
 In a second round of classifier training only the two highest performing models from round 1 are considered. Image size is varied in 16x16, 32x32 and 64x64, while number of histogram bins is varied 32 and 64. The results, once again done on 10 training rounds per parameter set and averaged, are shown in the tables below.
 
+HSV color space, all three features combined
 **image size (pixels)**|**number of histogram bins**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:
 16x16|32|0.9961|0.0010
@@ -76,8 +77,8 @@ In a second round of classifier training only the two highest performing models 
 32x32|64|0.9977|0.0011
 64x64|32|0.9950|0.0010
 64x64|64|0.9961|0.0016
-[HSV color space, all three features combined]
 
+HSV color space, only spatial color binning
 **image size (pixels)**|**number of histogram bins**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:
 16x16|32|0.9871|0.0021
