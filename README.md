@@ -139,9 +139,13 @@ Below are two images of the road and the heat generated (in green).
 
 ## The result
 
-The whole pipeline led to the creation of this [video](https://github.com/jippey67/sdc-p5/blob/master/project_video.mp4). It tracks the cars in the neighborhood very well. And there is the occasional false positive on the left side. I could have easily left that one out by starting the sliding windows more towards the center of the image, but as the would deteriorate the generality of the pipeline I decided to leave it in.
+The whole pipeline led to the creation of this [video](https://github.com/jippey67/sdc-p5/blob/master/project_video.mp4). It tracks the cars in the neighborhood very well. And there is the occasional false positive on the left side. I could have easily left that one out by starting the sliding windows more towards the center of the image, but as that would deteriorate the generality of the pipeline I decided to keep it in.
 
 ## Discussion
+
+1) The pipeline generally works well. But the incidental occurence of false positives requires some improvement before the pipeline can be put to actual use. Using a deep learning approach with a convolutional network to detect cars might improve the results over those of the SVM used in this project
+2) The processing time required by the pipeline was around half a second per frame. This prohibits the use in real time as 24 frames per second need to be processed then. Programming in C++ would certainly speed up the process, but other improvements might be needed as well.
+3) The selection of workable parameters took a lot of time. Many 'heavy' combinations led to a hanging processor. But playing with the various possibilities certainly increased my knowledge how they influenced the final results. And as in earlier projects: A metric like accuracy is a good guidance, but what counts is the final result. 
 
 ## sources
 * udacity.com: various Python functions
