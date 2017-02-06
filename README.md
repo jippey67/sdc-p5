@@ -151,5 +151,13 @@ total number of frames| | | | |122|
 
 ![found_boxes_car_other_lane](https://cloud.githubusercontent.com/assets/23193240/22652640/7fcfd038-ec87-11e6-9b0d-e3fe639b8a43.png)
 
+
+
+
+
+![road_view](https://cloud.githubusercontent.com/assets/23193240/22664224/ede977a4-ecaf-11e6-81b6-fa13e6e1c229.png)
+![heat_view](https://cloud.githubusercontent.com/assets/23193240/22664225/ee054f6a-ecaf-11e6-8f20-cea34e36226e.png)
+
+
 ## sources
 * udacity.com: various Python functions
