@@ -59,21 +59,13 @@ It became immediately clear that training an SVM on only HOG with only one layer
 5|4|2|ALL|0.9950
 5|4|1|ALL|0.9941
 
-In bold the highest accuracies. Trying to run the training on an even larger number of orientations wasn't succesful because of an unacceptable long training time. For the same reason I chose to go with 9 orientations (and 4 pixels per cell, 2 cells/block and ALL layers): The accuracy is not that much different from the highest accuracy features and, as processing time is important for creating a working video pipeline, this helps in reducing processor time.
+In bold the highest accuracies. Trying to run the training on an even larger number of orientations wasn't succesful because of an unacceptable long training time. 
 
-
-I investigated In the next step (three feature optimalization) I will consider other color spaces, but for HOG I kept it to HSV, for complexity reasons. HOG was tested on various values of number of orientatations, pixels per cell, cells per block, and the color layer of the image. The results made immediately clear that the image layers need to be combined to arrive at a useful feature. Single layer accuracy never reached 0.99 whereas a combination of the three layers easily reached that figure. The table below shows the accuracy with varying parameters. I left out the results of the single channel HOG for brevity.  
+The results are very promising with such high accuracy. However the car images used are always completely filling the image. In scanning over the images in the video pipeline this will certainly not always be the case. So to make the classifier more general I wanted to include spatial binning and color histograms as well. Including all three HOG image layers in a combined search wasn't workable as that consumed too much processing power. I decided to just use one HOG layer instead (layer 0), in the further research. 
 
 ### training the combinations of features
 
-
-Some preliminary research made clear that HOG parameters are already providing good solutions. RGB is not a good color space, but the HSV, LUV, HLS, YUV and YCrCb all made sense to further investigate. Using a single layer of a color space degraded performance considerably, so will not be considered. Spatial binning made some difference both in accuracy as in training time. histogram increasing bins to 64 also increased accuracy and training time. Training time is a measure for performance using the feature in a video pipeline. So we want this to be small.
-
-See what maximum accuracy we can achieve: imagesize 64x64 (source image resolution), 64 bins for histograms, try this on all color spaces mentioned above and on all combinations of feature vectors (spatial binning, color histograms, HOG). As the accuracy varied to some extent from training to training, I decided to run those combinations 10 times and average the accuracies, shown in the table below. 
-
-training on a SVM with a linear kernel
-
-
+In this next step (three feature optimalization) I also considered other color spaces, to obtain a feeling for what they do when used with the various features. The table below shows results for imagesize 64x64, 64 bins for histograms:
 
 **color space**|**spatial color binning**|**histograms of color**|**HOG**|**average test accuracy**|**standard deviation**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:
@@ -114,6 +106,8 @@ YCrCb|TRUE|TRUE|FALSE|0.9395|0.0035
 YCrCb|TRUE|TRUE|TRUE|0.9904|0.0021
 
 The highest accuracy is scored in the HSV color space, using all three features. Interesting is that using only the spatial color binning feature also provides a high accuracy. Both rows are shown in bold in the table above. The training of these classifiers was done with large parameters for image size and size of histogram bins. This will result in a relatively long processing time in the video pipeline, so it makes sense to find out how much the accuracy drops when those parameters are decreased. 
+
+
 In a second round of classifier training only the two highest performing models from round 1 are considered. Image size is varied in 16x16, 32x32 and 64x64, while number of histogram bins is varied 32 and 64. The results, once again done on 10 training rounds per parameter set and averaged, are shown in the tables below.
 
 **HSV color space, all three features combined**
