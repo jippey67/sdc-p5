@@ -118,14 +118,16 @@ Another aspect is the overlap of the sliding windows. Although with an overlap o
 
 **type of car**|**size of box**|**y-range**|**x-range**|**step size**|**frames in y direction**|**frames in x direction**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-small|32x32|400 - 448|400 - 880|50%|2|29
-medium|64x64|400 - 496|320 - 960|50%|2|19
-large|128x128|400 - 592|192-1088|50%|2|13
+small|64x64|400 - 496|320 - 960|75%|3|37
+medium|96x96|400 - 544|320 - 960|75%|3|20
+large|128x128|400 - 592|192-1088|75%|3|25
  | | | | | | 
-total number of frames| | | | |122| 
+total number of frames| | | | |246| 
 
+In de twee plaatjes hieronder:
 
-
+<img src="https://cloud.githubusercontent.com/assets/23193240/22651609/f36adc08-ec83-11e6-9c6a-b2d773c8811f.png" width="300" height="200" /> 
+<img src="https://cloud.githubusercontent.com/assets/23193240/22652640/7fcfd038-ec87-11e6-9b0d-e3fe639b8a43.png" width="300" height="200" /> 
 
 
 
