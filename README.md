@@ -153,9 +153,11 @@ The whole pipeline led to the creation of this [video](https://github.com/jippey
 
 ## Discussion
 
-1) The pipeline generally works well. But the incidental occurence of false positives requires some improvement before the pipeline can be put to actual use. Using a deep learning approach with a convolutional network to detect cars might improve the results over those of the SVM used in this project
-2) The processing time required by the pipeline was around half a second per frame. This prohibits the use in real time as 24 frames per second need to be processed then. Programming in C++ would certainly speed up the process, but other improvements might be needed as well.
-3) The selection of workable parameters took a lot of time. Many 'heavy' combinations led to a hanging processor. But playing with the various possibilities certainly increased my knowledge how they influenced the final results. And as in earlier projects: A metric like accuracy is a good guidance, but what counts is the final result. 
+* The pipeline generally works well. But the incidental occurence of false positives requires some improvement before the pipeline can be put to actual use. Using a deep learning approach with a convolutional network to detect cars might improve the results over those of the SVM used in this project.
+
+* The processing time required by the pipeline was around half a second per frame. This prohibits the use in real time as 24 frames per second need to be processed then. Programming in C++ would certainly speed up the process, but other improvements might be needed as well.
+
+* The selection of workable parameters took a lot of time. Many 'heavy' combinations led to a hanging processor. But playing with the various possibilities certainly increased my knowledge how they influenced the final results. And as in earlier projects: A metric like accuracy is a good guidance, but what counts is the final result. 
 
 ## sources
 * udacity.com: various Python functions
