@@ -153,11 +153,8 @@ total number of frames| | | | |122|
 
 
 
-
-
-![road_view](https://cloud.githubusercontent.com/assets/23193240/22664224/ede977a4-ecaf-11e6-81b6-fa13e6e1c229.png)
-![heat_view](https://cloud.githubusercontent.com/assets/23193240/22664225/ee054f6a-ecaf-11e6-8f20-cea34e36226e.png)
-
+![heat_view](https://cloud.githubusercontent.com/assets/23193240/22664344/86928536-ecb0-11e6-8f29-822d956f1147.png)
+![road_view](https://cloud.githubusercontent.com/assets/23193240/22664345/869338f0-ecb0-11e6-938c-46dd89b11989.png)
 
 ## sources
 * udacity.com: various Python functions
