@@ -105,38 +105,16 @@ YCrCb|TRUE|FALSE|TRUE|0.9901|0.0022
 YCrCb|TRUE|TRUE|FALSE|0.9395|0.0035
 YCrCb|TRUE|TRUE|TRUE|0.9904|0.0021
 
-The highest accuracy is scored in the HSV color space, using all three features. Interesting is that using only the spatial color binning feature also provides a high accuracy. Both rows are shown in bold in the table above. The training of these classifiers was done with large parameters for image size and size of histogram bins. This will result in a relatively long processing time in the video pipeline, so it makes sense to find out how much the accuracy drops when those parameters are decreased. 
+The highest accuracy is scored in the HSV color space, using all three features. Interesting is that using only the spatial color binning feature also provides a high accuracy. Both rows are shown in bold in the table above. Looking over the various color spaces it shows that many of them score quite good when all three features are combined. 
 
+What settings to choose? The highest accuracy is within the HSV space with all features combined. This was the first combination used in finding cars in the test images and the video pipeline. As the proof of the pudding is in the eating (and not in the test accuracy), I also tried the other color spaces to find cars in the test_images and the video. Using the YCrCb color space provided the best results there, and that is what I finally settled on.
 
-In a second round of classifier training only the two highest performing models from round 1 are considered. Image size is varied in 16x16, 32x32 and 64x64, while number of histogram bins is varied 32 and 64. The results, once again done on 10 training rounds per parameter set and averaged, are shown in the tables below.
-
-**HSV color space, all three features combined**
-
-**image size (pixels)**|**number of histogram bins**|**average test accuracy**|**standard deviation**
-:-----:|:-----:|:-----:|:-----:
-16x16|32|0.9961|0.0010
-**16x16**|**64**|**0.9981**|**0.0006**
-32x32|32|0.9971|0.0010
-32x32|64|0.9977|0.0011
-64x64|32|0.9950|0.0010
-64x64|64|0.9961|0.0016
-
-**HSV color space, only spatial color binning**
-
-**image size (pixels)**|**number of histogram bins**|**average test accuracy**|**standard deviation**
-:-----:|:-----:|:-----:|:-----:
-16x16|32|0.9871|0.0021
-16x16|64|0.9976|0.0008
-32x32|32|0.9848|0.0019
-**32x32**|**64**|**0.9978**|**0.0013**
-64x64|32|0.9856|0.0019
-64x64|64|0.9976|0.0012
-
-What settings to choose? 16x16 images (with 64 histogram bins) somewhat surprisingly provide the highest accuracy of 0.998, when all three features are combined. This seems very high, but still means that 2 out of 1000 samples will be misclassified. Considered the number of frames that will be searched in a single image, and the number of images in a video stream, it is clear that many misclassifications will occur. While a classifier with mmultiple features and high resolutiuon will consume more processing time, leading to a longer conversion time of the video stream and ultimately to a processing time that is simply too long for use in real time vehicle detection. Also consider using spatial color bins only in the video pipeline. Proof of the pudding is in the eating: see what works best in the pipeline.
 
 ## Sliding window search
 
-Cars appear smaller in the image the farther they are away. The range of the image to be searched for small instances of a car is relatively small as is the size of the car image. From a couple of pictures it appears that small cars fit in a box of 32x32 pixels, whereas nearby and therefore larger cars need up to 128x128 pixels. In general there are no cars to be expected in the range y < 400. Also far away cars tend to be distributed closely around the x-center of the images. I decided to aim my search for cars in the following way:
+Cars appear smaller in the image the farther they are away. The range of the image to be searched for small instances of a car is relatively small as is the size of the car image. From a couple of pictures it appears that small cars fit in a box of 32x32 pixels, whereas nearby and therefore larger cars need up to 128x128 pixels. In general there are no cars to be expected in the range y < 400. 
+
+Another aspect is the overlap of the sliding windows. Although with an overlap of 50% most car objects were found in the images, after some experimentation I settled on an overalp of 75%. This resulted in the cars often found multiple times in an image, whereas the false postives just occurerd once for most of the time. This made it possible to filter out many false positives by applying a threshold. I finally setteld on these sliding window settings:
 
 **type of car**|**size of box**|**y-range**|**x-range**|**step size**|**frames in y direction**|**frames in x direction**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
