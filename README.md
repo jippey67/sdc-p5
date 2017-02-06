@@ -137,6 +137,16 @@ Below are two images of the road and the heat generated (in green).
 <img src="https://cloud.githubusercontent.com/assets/23193240/22664345/869338f0-ecb0-11e6-938c-46dd89b11989.png" width="400" height="200" /> 
 <img src="https://cloud.githubusercontent.com/assets/23193240/22664344/86928536-ecb0-11e6-8f29-822d956f1147.png" width="400" height="200" /> 
 
+## Python programs used in this project
+
+I split the training of the model and the actual pipeline into two different Python programs:
+
+car_finder.py was used to train the model. It includes various steps for analyzing what various parameters do to the accuracy of the model. As a final step, it saves the chosen model alongside with the feature scaler.
+
+pipeline.py is where the actual work on the video was done. It loads the model and scaler. The windows in every frame are fed into the scaler and afterwards into the classifier. The consecutive steps are the measurement of heat and the building of a heat queue of the last 20 frames. That is where the filtering of false positives is done (row 119 - row 127). Based on that information, the boxes where the cars are assumed to be, are drawn on the original image.
+
+A third Python file 'lesson_functions.py' is included. This contains a couple of files used in the course, and in the above two programs.
+
 ## The result
 
 The whole pipeline led to the creation of this [video](https://github.com/jippey67/sdc-p5/blob/master/project_video.mp4). It tracks the cars in the neighborhood very well. And there is the occasional false positive on the left side. I could have easily left that one out by starting the sliding windows more towards the center of the image, but as that would deteriorate the generality of the pipeline I decided to keep it in.
