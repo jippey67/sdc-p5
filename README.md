@@ -129,14 +129,10 @@ The two pictures below show found cars and false positives
 <img src="https://cloud.githubusercontent.com/assets/23193240/22651609/f36adc08-ec83-11e6-9c6a-b2d773c8811f.png" width="500" height="250" /> 
 <img src="https://cloud.githubusercontent.com/assets/23193240/22652640/7fcfd038-ec87-11e6-9b0d-e3fe639b8a43.png" width="500" height="250" /> 
 
+To filter out as many false positives as possible I used a two step filtering process. In the first step the 'heat' of the analysed image was determined. As the cars are detected in a multiple of the sliding windows, a lot of heat is generated wher the cars are. It is anticipated that false positives generate less heat. So when the heat was smaller or equal to 2, this was marked as a false positive and left out of the heat of the image at hand.
+The next step was an averaging mechanism with another filter. All heat maps were fed to a queue of length 10. All layers in the queue are then added up. Pixels with some heat, but below or equal to threshold of 4 are once again considered to be potential false positives, and are therefore removed.
 
-
-
-![found_boxes_false_pos](https://cloud.githubusercontent.com/assets/23193240/22651609/f36adc08-ec83-11e6-9c6a-b2d773c8811f.png)
-
-![found_boxes_car_other_lane](https://cloud.githubusercontent.com/assets/23193240/22652640/7fcfd038-ec87-11e6-9b0d-e3fe639b8a43.png)
-
-
+Below are two images of the road and the heat generated (in green).
 
 ![heat_view](https://cloud.githubusercontent.com/assets/23193240/22664344/86928536-ecb0-11e6-8f29-822d956f1147.png)
 ![road_view](https://cloud.githubusercontent.com/assets/23193240/22664345/869338f0-ecb0-11e6-938c-46dd89b11989.png)
