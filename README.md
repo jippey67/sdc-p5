@@ -35,8 +35,8 @@ Preliminary research already proved the RGB wasn't very useful for using the HOG
 * the number of orientation bins
 * number of pixels per cell
 * number of cells per block
-It became immediately clear that training an SVM on only HOG with only one layer of the colorspace provided much worse results than when using all layers. For brevity I left out the results on single layers. The results for the three layers combined is show in the table below: 
 
+It became immediately clear that training an SVM on only HOG with only one layer of the colorspace provided much worse results than when using all layers. For brevity I left out the results on single layers. The results for the three layers combined is show in the table below: 
 
 **# orientations**|**pix/cell**|**cells/block**|**HOG channel**|**test accuracy**
 :-----:|:-----:|:-----:|:-----:|:-----:
