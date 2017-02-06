@@ -30,8 +30,8 @@ A couple of features are available to implement with this classifier: spatial bi
 
 ### The HOG parameters
 
-Preliminary research already proved the RGB wasn't very useful for using the HOG feature. HSV did a much better job, so I conducted the HOG research within this colorspace. 
-I investigated In the next step (three feature optimalization) I will consider other color spaces, but for HOG I kept it to HSV, for complexity reasons. HOG was tested on various values of number of orientatations, pixels per cell, cells per block, and the color layer of the image. The results made immediately clear that the image layers need to be combined to arrive at a useful feature. Single layer accuracy never reached 0.99 whereas a combination of the three layers easily reached that figure. The table below shows the accuracy with varying parameters. I left out the results of the single channel HOG for brevity.  
+Preliminary research already proved the RGB wasn't very useful for using the HOG feature. HSV did a much better job, so I conducted the HOG research within this colorspace. Parameters varied for HOG were layer within the colorspace (could also be all three together), the number of orientation bins, number of pixels per cell and number of cells per block. It became immediately clear that training an SVM on only HOG with only one layer of the colorspace provided much worse results than when using all layers. For brevity I left out the results on single layers. The results for the three layers combined is show in the table below: 
+
 
 **# orientations**|**pix/cell**|**cells/block**|**HOG channel**|**test accuracy**
 :-----:|:-----:|:-----:|:-----:|:-----:
@@ -55,6 +55,9 @@ I investigated In the next step (three feature optimalization) I will consider o
 5|4|1|ALL|0.9941
 
 In bold the highest accuracies. Trying to run the training on an even larger number of orientations wasn't succesful because of an unacceptable long training time. For the same reason I chose to go with 9 orientations (and 4 pixels per cell, 2 cells/block and ALL layers): The accuracy is not that much different from the highest accuracy features and, as processing time is important for creating a working video pipeline, this helps in reducing processor time.
+
+
+I investigated In the next step (three feature optimalization) I will consider other color spaces, but for HOG I kept it to HSV, for complexity reasons. HOG was tested on various values of number of orientatations, pixels per cell, cells per block, and the color layer of the image. The results made immediately clear that the image layers need to be combined to arrive at a useful feature. Single layer accuracy never reached 0.99 whereas a combination of the three layers easily reached that figure. The table below shows the accuracy with varying parameters. I left out the results of the single channel HOG for brevity.  
 
 ### training the combinations of features
 
