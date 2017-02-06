@@ -21,15 +21,17 @@ Below are 5 examples of cars en 5 examples of non cars.
 <img src="https://cloud.githubusercontent.com/assets/23193240/22543714/133f54aa-e932-11e6-8dd0-370e2d227a79.jpg" width="128" height="128" /> 
 <img src="https://cloud.githubusercontent.com/assets/23193240/22543796/6819e67a-e932-11e6-8863-f57416bd8b7e.jpg" width="128" height="128" /> 
 
-The data was labeled "1" for cars and "0" for non cars, and after creating a random sequence, split into 80% training data and 20% test data. The training data were fed to various collections of feature extractors - as described below - and afterward the feature values were normalized inorder to prevent one feature dominating the eventual others.
+The data were labeled "1" for cars and "0" for non cars, and after creating a random sequence, split into 80% training data and 20% test data. The training data were fed to various collections of feature extractors - as described below - and afterward the feature values were normalized inorder to prevent one feature dominating the others.
 
 ## Training a classifier
 
-For this project I chose to use a Support Vector Machine with a linear kernel. A couple of features are available to implement with this classifier: spatial binning of color, color histograms and histograms of oriented gradients (HOG). Each of these involves the selection of parameters. As especially the HOG feature has many parameters, I decided to investigate this one first. In a following step I combined the three features and ran a two-step simulation to arrive at the optimal parameters.
+For this project I chose to use a Support Vector Machine with a linear kernel. As there were many others parameters to tune I sticked with the standard parameters for the SVM, as they worked quite good from the beginning.
+A couple of features are available to implement with this classifier: spatial binning of color, color histograms and histograms of oriented gradients (HOG). Each of these involves the selection of parameters. As especially the HOG feature has many parameters, I decided to investigate this one first with a simulation in which I varied a couple of parameters. In a following step I combined the three features and ran another simulation to arrive at parameters to use in the video pipeline.
 
 ### The HOG parameters
 
-Preliminary research already proved the HSV color space as useful for using the HOG feature. In the next step (three feature optimalization) I will consider other color spaces, but for HOG I kept it to HSV, for complexity reasons. HOG was tested on various values of number of orientatations, pixels per cell, cells per block, and the color layer of the image. The results made immediately clear that the image layers need to be combined to arrive at a useful feature. Single layer accuracy never reached 0.99 whereas a combination of the three layers easily reached that figure. The table below shows the accuracy with varying parameters. I left out the results of the single channel HOG for brevity.  
+Preliminary research already proved the RGB wasn't very useful for using the HOG feature. HSV did a much better job, so I conducted the HOG research within this colorspace. 
+I investigated In the next step (three feature optimalization) I will consider other color spaces, but for HOG I kept it to HSV, for complexity reasons. HOG was tested on various values of number of orientatations, pixels per cell, cells per block, and the color layer of the image. The results made immediately clear that the image layers need to be combined to arrive at a useful feature. Single layer accuracy never reached 0.99 whereas a combination of the three layers easily reached that figure. The table below shows the accuracy with varying parameters. I left out the results of the single channel HOG for brevity.  
 
 **# orientations**|**pix/cell**|**cells/block**|**HOG channel**|**test accuracy**
 :-----:|:-----:|:-----:|:-----:|:-----:
