@@ -124,10 +124,10 @@ large|128x128|400 - 592|192-1088|75%|3|25
  | | | | | | 
 total number of frames| | | | |246| 
 
-In de twee plaatjes hieronder:
+The two pictures below show found cars and false positives
 
-<img src="https://cloud.githubusercontent.com/assets/23193240/22651609/f36adc08-ec83-11e6-9c6a-b2d773c8811f.png" width="300" height="200" /> 
-<img src="https://cloud.githubusercontent.com/assets/23193240/22652640/7fcfd038-ec87-11e6-9b0d-e3fe639b8a43.png" width="300" height="200" /> 
+<img src="https://cloud.githubusercontent.com/assets/23193240/22651609/f36adc08-ec83-11e6-9c6a-b2d773c8811f.png" width="500" height="250" /> 
+<img src="https://cloud.githubusercontent.com/assets/23193240/22652640/7fcfd038-ec87-11e6-9b0d-e3fe639b8a43.png" width="500" height="250" /> 
 
 
 
