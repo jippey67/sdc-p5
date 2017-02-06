@@ -139,7 +139,9 @@ Below are two images of the road and the heat generated (in green).
 
 ## The result
 
-The whole pipeline led to the creation of this video 
+The whole pipeline led to the creation of this [video](https://github.com/jippey67/sdc-p5/blob/master/project_video.mp4). It tracks the cars in the neighborhood very well. And there is the occasional false positive on the left side. I could have easily left that one out by starting the sliding windows more towards the center of the image, but as the would deteriorate the generality of the pipeline I decided to leave it in.
+
+## Discussion
 
 ## sources
 * udacity.com: various Python functions
