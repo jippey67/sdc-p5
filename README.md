@@ -137,5 +137,9 @@ Below are two images of the road and the heat generated (in green).
 <img src="https://cloud.githubusercontent.com/assets/23193240/22664345/869338f0-ecb0-11e6-938c-46dd89b11989.png" width="400" height="200" /> 
 <img src="https://cloud.githubusercontent.com/assets/23193240/22664344/86928536-ecb0-11e6-8f29-822d956f1147.png" width="400" height="200" /> 
 
+## The result
+
+The whole pipeline led to the creation of this video 
+
 ## sources
 * udacity.com: various Python functions
